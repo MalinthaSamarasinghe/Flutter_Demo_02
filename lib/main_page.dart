@@ -1,7 +1,6 @@
-import 'dart:convert';
-
-// import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'second_page.dart';
 import 'colors.dart' as color;
 
 class MyHomePage extends StatefulWidget {
@@ -25,10 +24,15 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 85, left: 20),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: color.AppColor.homePageTitle,
-                    size: 30,
+                  child: InkWell(
+                    onTap: () {
+                      Get.to(() => const SecondPage());
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: color.AppColor.homePageTitle,
+                      size: 30,
+                    ),
                   ),
                 ),
                 Column(
@@ -62,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             height: 315,
                             width: 270,
                             // color: Colors.redAccent,
-                            margin: const EdgeInsets.only(left: 10, top: 20),
+                            margin: const EdgeInsets.only(left: 10, top: 5),
                             padding: const EdgeInsets.only(top: 60, left: 30),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     "\$165.98",
                     style: TextStyle(
                       fontSize: 30,
-                      color: color.AppColor.watchColor,
+                      color: color.AppColor.watchColor.withOpacity(0.8),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -119,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.only(right: 30),
                   child: Icon(
                     Icons.loop,
-                    color: color.AppColor.watchColor,
+                    color: color.AppColor.watchColor.withOpacity(0.8),
                     size: 40,
                   ),
                 ),
@@ -199,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: Divider(
                 color: Colors.black38,
-                thickness: 0.5,
+                thickness: 0.8,
               ),
             ),
             Row(
@@ -236,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: Divider(
                 color: Colors.black38,
-                thickness: 1,
+                thickness: 0.5,
               ),
             ),
             const SizedBox(
@@ -257,13 +261,13 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: Alignment.topLeft,
               padding: const EdgeInsets.only(left: 50),
               child: Text(
-                  "2 years WatchCenter Warranty.",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: color.AppColor.profileBackground,
-                    fontWeight: FontWeight.w600,
-                  ),
+                "2 years WatchCenter Warranty.",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: color.AppColor.profileBackground,
+                  fontWeight: FontWeight.w600,
                 ),
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -273,15 +277,18 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(left: 30, right: 10),
               child: RaisedButton(
                 padding: const EdgeInsets.all(18),
-                color: color.AppColor.watchColor.withOpacity(0.3),
-                onPressed: () {  },
+                color: color.AppColor.watchColor.withOpacity(0.8),
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/secondPage");
+                },
                 child: const Text(
                   'ADD TO BAG        +',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
-                ),),
+                  ),
+                ),
               ),
             ),
           ],
